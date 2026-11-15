@@ -177,10 +177,10 @@ public class BackupManager {
         if (e.xp > 0) {
             p.giveExp(e.xp);
         }
-        plugin.bars().refresh(p.getUniqueId());
 
         e.claimed = true;
         save(p.getUniqueId());
+        plugin.bars().refresh(p.getUniqueId()); // dopiero po oznaczeniu jako odebrany
         p.sendMessage(DeathBackupPlugin.PREFIX + "§aOdebrano backup! §7(" + e.itemCount() + " przedmiotow, "
                 + XpUtil.levelFor(e.xp) + " lvl)");
         return true;

@@ -128,6 +128,7 @@ public class MenuListener implements Listener {
         if (online != null) {
             online.sendMessage(DeathBackupPlugin.PREFIX + "§aOtrzymales backup! Wpisz §e/odbierzbackup §aaby go odebrac.");
         }
+        plugin.bars().refresh(target);
     }
 
     private void revoke(Player admin, UUID target, String name, BackupEntry entry) {
@@ -135,5 +136,6 @@ public class MenuListener implements Listener {
         entry.claimed = false;
         plugin.manager().save(target);
         admin.sendMessage(DeathBackupPlugin.PREFIX + "§eCofnieto nadanie backupu dla §f" + name + "§e.");
+        plugin.bars().refresh(target);
     }
 }

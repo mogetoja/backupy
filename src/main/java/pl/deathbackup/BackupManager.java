@@ -177,6 +177,7 @@ public class BackupManager {
         if (e.xp > 0) {
             p.giveExp(e.xp);
         }
+        plugin.bars().refresh(p.getUniqueId());
 
         e.claimed = true;
         save(p.getUniqueId());

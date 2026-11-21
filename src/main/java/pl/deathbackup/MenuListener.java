@@ -123,11 +123,11 @@ public class MenuListener implements Listener {
         entry.claimed = false;
         entry.grantedBy = admin.getName();
         plugin.manager().save(target);
-        admin.sendMessage(DeathBackupPlugin.PREFIX + "§aNadano backup graczowi §f" + name + "§a.");
 
         Player online = Bukkit.getPlayer(target);
         if (online != null) {
-            online.sendMessage(DeathBackupPlugin.PREFIX + "§aOtrzymales backup! Wpisz §e/odbierzbackup §aaby go odebrac.");
+            online.sendMessage(DeathBackupPlugin.PREFIX + "§fAdministrator §c" + admin.getName()
+                    + " §fnadal Ci backup. Wpisz §e/odbierzbackup §faby go odebrac.");
         }
         plugin.bars().refresh(target);
         plugin.announceGrant(admin.getName(), name);

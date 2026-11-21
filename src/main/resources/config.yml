@@ -4,5 +4,6 @@
 # Discord: Ustawienia kanalu -> Integracje -> Webhooki -> Nowy webhook -> Kopiuj URL
 discord-webhook: ""
 
-# Ogloszenie na czacie dla wszystkich graczy (true/false)
+# Ogloszenie o odebraniu backupu na czacie dla wszystkich graczy (true/false).
+# Ogloszenie o nadaniu widza zawsze tylko administratorzy z uprawnieniem deathbackup.admin.
 chat-broadcast: true

@@ -57,8 +57,8 @@ public class DeathBackupPlugin extends JavaPlugin implements TabExecutor {
 
     /** Admin nadal backup graczowi: czat + Discord. */
     public void announceGrant(String admin, String player) {
-        announce("§8[§cBackup§8] §fAdministrator §c" + admin + " §fnadal backup graczowi §a" + player + "§f.",
-                "Administrator **" + admin + "** nadal backup graczowi **" + player + "**.");
+        announce("§8[§cBackup§8] §fAdministrator §c" + admin + " §fnadal backupa dla gracza §a" + player + "§f.",
+                "Administrator **" + admin + "** nadal backupa dla gracza **" + player + "**.");
     }
 
     /** Gracz odebral backup: czat + Discord. */

@@ -22,6 +22,7 @@ public class DeathBackupPlugin extends JavaPlugin implements TabExecutor {
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
         manager = new BackupManager(this);
         bars = new BarManager(this);
 
@@ -52,6 +53,26 @@ public class DeathBackupPlugin extends JavaPlugin implements TabExecutor {
 
     public BarManager bars() {
         return bars;
+    }
+
+    /** Admin nadal backup graczowi: czat + Discord. */
+    public void announceGrant(String admin, String player) {
+        announce("§8[§cBackup§8] §fAdministrator §c" + admin + " §fnadal backup graczowi §a" + player + "§f.",
+                "Administrator **" + admin + "** nadal backup graczowi **" + player + "**.");
+    }
+
+    /** Gracz odebral backup: czat + Discord. */
+    public void announceClaim(String player, String admin) {
+        String by = (admin == null || admin.isBlank()) ? "" : admin;
+        announce("§8[§cBackup§8] §fGracz §a" + player + " §fodebral backup nadany przez administratora §c" + by + "§f.",
+                "Gracz **" + player + "** odebral backup nadany przez administratora **" + by + "**.");
+    }
+
+    private void announce(String chat, String discord) {
+        if (getConfig().getBoolean("chat-broadcast", true)) {
+            Bukkit.broadcastMessage(chat);
+        }
+        Webhook.send(this, getConfig().getString("discord-webhook", ""), discord);
     }
 
     @Override

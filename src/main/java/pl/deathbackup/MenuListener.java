@@ -121,6 +121,7 @@ public class MenuListener implements Listener {
     private void grant(Player admin, UUID target, String name, BackupEntry entry) {
         entry.granted = true;
         entry.claimed = false;
+        entry.grantedBy = admin.getName();
         plugin.manager().save(target);
         admin.sendMessage(DeathBackupPlugin.PREFIX + "§aNadano backup graczowi §f" + name + "§a.");
 
@@ -129,11 +130,13 @@ public class MenuListener implements Listener {
             online.sendMessage(DeathBackupPlugin.PREFIX + "§aOtrzymales backup! Wpisz §e/odbierzbackup §aaby go odebrac.");
         }
         plugin.bars().refresh(target);
+        plugin.announceGrant(admin.getName(), name);
     }
 
     private void revoke(Player admin, UUID target, String name, BackupEntry entry) {
         entry.granted = false;
         entry.claimed = false;
+        entry.grantedBy = "";
         plugin.manager().save(target);
         admin.sendMessage(DeathBackupPlugin.PREFIX + "§eCofnieto nadanie backupu dla §f" + name + "§e.");
         plugin.bars().refresh(target);

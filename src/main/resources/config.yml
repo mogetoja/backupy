@@ -5,5 +5,5 @@
 discord-webhook: ""
 
 # Ogloszenie o odebraniu backupu na czacie dla wszystkich graczy (true/false).
-# Ogloszenie o nadaniu widza zawsze tylko administratorzy z uprawnieniem deathbackup.admin.
+# Ogloszenie o nadaniu widza zawsze tylko osoby z uprawnieniem deathbackup.wiadomoscibc.
 chat-broadcast: true

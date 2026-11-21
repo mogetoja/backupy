@@ -55,11 +55,11 @@ public class DeathBackupPlugin extends JavaPlugin implements TabExecutor {
         return bars;
     }
 
-    /** Admin nadal backup graczowi: czat tylko dla administracji (deathbackup.admin) + Discord. */
+    /** Admin nadal backup graczowi: czat tylko dla osob z deathbackup.wiadomoscibc + Discord. */
     public void announceGrant(String admin, String player) {
         String msg = "§8[§cBackup§8] §fAdministrator §c" + admin + " §fnadal backupa dla gracza §a" + player + "§f.";
         for (Player pl : Bukkit.getOnlinePlayers()) {
-            if (pl.hasPermission("deathbackup.admin")) pl.sendMessage(msg);
+            if (pl.hasPermission("deathbackup.wiadomoscibc")) pl.sendMessage(msg);
         }
         Bukkit.getConsoleSender().sendMessage(msg);
         Webhook.send(this, getConfig().getString("discord-webhook", ""),
